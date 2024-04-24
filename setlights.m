@@ -13,11 +13,7 @@ function S = setlights(bin, jgreen, nbin, t, tlc, tlcstep)
     S = zeros(1, size(bin, 2));
     for i = 1:numel(jgreen)
         b = bin(i, jgreen(i));
-        if b >= 1 && b <= length(S) % Check if b is a valid index for S
-            S(b) = 1;
-        else
-            warning('Invalid index b: %d', b);
-        end
+        S(b) = 1;
     end
 
     % Display or return the traffic light state, depending on your requirements

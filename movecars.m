@@ -1,5 +1,19 @@
+function c = firstcar(b)
+    global nb; % Assuming nb is the total number of blocks
+    global nextb; % Assuming nextb is an array storing the index of the next car in each block
+
+    c = -1; % Initialize c to -1 indicating no car found in the block yet
+    for i = 1:numel(nextb)
+        if nextb(i) == b % Check if the next block of the car is b
+            c = i; % Assign the index of the car to c
+            break; % Exit the loop once the first car in block b is found
+        end
+    end
+end
+
+
 for b = 1:nb
-    c = firstcar(b)
+    c = firstcar(b);
     while(c>0)
         if(c==firstcar(b))
             if (bd(c)==b)&&(pd(c)>p(c))
