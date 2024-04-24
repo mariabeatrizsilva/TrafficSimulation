@@ -1,3 +1,5 @@
+
+
 % createcars.m
 for b = 1 : nb
     if (rand < dt * R * L(b))

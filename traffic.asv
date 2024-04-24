@@ -1,0 +1,36 @@
+% initialize
+clockmax = 100;
+hours = 24;
+dt  = hours / clockmax;
+tlc = 4 * 6; % number of traffic lights?
+nb  = 38; % number of blocks
+ni  = 4 * 6;
+nc  = 10; % number of cars
+i1 = zeros(nb); % Add initialization for i1
+i2 = ; % Add initialization for i2
+jgreen = zeros(ni, 1); % Initialize jgreen as a column vector
+
+
+% Initializing some arrays
+nbin = zeros(1, ni); % Initialize nbin as a row vector
+nbout = zeros(1, ni); % Initialize nbout as a row vector
+for i = 1:ni
+    nbin(i) = sum(i2 == i);
+    nbout(i) = sum(i1 == i); % Correct variable name from nbin to nbout
+end
+nbinmax = max(nbin); % Correct variable name from bin to nbin
+nboutmax = max(nbout); % Correct variable name from nbout to nbin
+bin = zeros(ni, nbinmax);
+bout = zeros(ni, nboutmax);
+for i = 1:ni % Correct loop syntax
+    bin(i, 1:nbin(i)) = find(i2 == i);
+    bout(i, 1:nbout(i)) = find(i1 == i);
+end
+
+for clock = 1:clockmax
+    t = clock * dt;
+    setlights;
+    createcars;
+    morecars;
+    plotcars;
+end

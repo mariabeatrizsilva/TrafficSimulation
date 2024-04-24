@@ -1,5 +1,5 @@
 firstcar(b) = nextcar(c) 
-if (c=lastcar(b))
+if (c = lastcar(b))
     lastcar(b) = 0 
 end 
 if (lastcar(nextb(c)) ==0)
